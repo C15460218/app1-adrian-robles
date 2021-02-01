@@ -32,11 +32,11 @@ def index():
     return render_template("index.html",variable = lista)
     #return redirect(url_for('acerca'))
 
-# @app.route('/eliminar/<id>')
-# def eliminar(id):
-#    eAlumno = Alumno.query.filter_by(id=int(id)).delete()
-#    db.sesion.commit()
-#    return redirect(url_for('acerca'))
+@app.route('/eliminar/<id>')
+def eliminar(id):
+    eAlumno = Alumno.query.filter_by(id=int(id)).delete()
+    db.sesion.commit()
+    return redirect(url_for('acerca'))
 
 @app.route('/editar/<id>')
 def editar(id):
