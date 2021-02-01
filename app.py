@@ -34,7 +34,7 @@ def index():
 
 @app.route('/eliminar/<id>')
 def eliminar(id):
-    q = Alumno.query.filter(Alumno.id=id).delete()
+    ealumno = Alumno.query.filter_by(id=int(id)).delete()
     db.sesion.commit()
     return redirect(url_for('acerca'))
 
