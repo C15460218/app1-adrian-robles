@@ -10,7 +10,7 @@
         </p>
         <ul>
             {% for elemento in variable %}
-            <li> {{elemento}} </li>
+            <li> <a href="\{{elemento}}">{{elemento}}</a></li>
             {% endfor %}
         </ul>
         {% if "Acerca" in variable %}
@@ -20,8 +20,8 @@
         {% endif %}
 
         <form method="POST">
-            <input type="text" name="nombre" value="">
-            <input type="text" name="apellido" value="">
+            <input type="text" name="nombre" value="" placeholder="Nombre">
+            <input type="text" name="apellido" value="" placeholder="Apellido">
             <button type="submit" name="button" class="btn btn-primary">Registrar</button>
         </form>
 

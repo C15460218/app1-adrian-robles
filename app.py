@@ -27,10 +27,30 @@ def index():
         db.session.add(alumno)
         db.session.commit()
         mensaje="Alumno Registrado"
-        return render_template('index.html',mensaje=mensaje)
+        return redirect(url_for('index'))
     lista = ["Acerca","Nosotros","Contacto","Preguntas Frecuentes"]
     return render_template("index.html",variable = lista)
     #return redirect(url_for('acerca'))
+
+# @app.route('/eliminar/<id>')
+# def eliminar(id):
+#    eAlumno = Alumno.query.filter_by(id=int(id)).delete()
+#    db.sesion.commit()
+#    return redirect(url_for('acerca'))
+
+@app.route('/editar/<id>')
+def editar(id):
+    ralumno = Alumno.query.filter_by(id=int(id)).first()
+    return render_template('editar.html', alumno = ralumno)
+
+@app.route('/actualizar', methods=['GET','POST'])
+def actualizar():
+   if request.method == 'POST':
+       cons = Alumno.query.get(request.form['id'])
+       cons.nombre = request.form['nombreE']
+       cons.apellido = request.form['apellidoE']
+       db.session.commit()
+       return redirect(url_for('acerca'))
 
 @app.route('/acerca')
 def acerca():

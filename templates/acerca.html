@@ -3,20 +3,31 @@
     Acerca
 {% endblock %}
 {% block body %}
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</td>
-            </tr>
-        </thead>
-        <tbody>
-            {% for r in variable %}
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <td>{{r.nombre}}</td>
-                    <td>{{r.apellido}}</td>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Acción</th>
+                    <th>Acción</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for r in variable %}
+                    <tr>
+                        <td>{{r.nombre}}</td>
+                        <td>{{r.apellido}}</td>
+                        <td>
+                            <a href="/editar/{{r.id}}" class="btn btn-warning btn-xs">Editar</a>
+                        </td>
+                        <td>
+                            <a href="/eliminar/{{r.id}}" class="btn btn-danger btn-xs">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
