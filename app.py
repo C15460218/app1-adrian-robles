@@ -28,7 +28,7 @@ def index():
         db.session.commit()
         mensaje="Alumno Registrado"
         return redirect(url_for('index'))
-    lista = ["Acerca","Nosotros","Contacto","Preguntas Frecuentes"]
+    lista = ["acerca","nosotros","contacto","preguntas frecuentes"]
     return render_template("index.html",variable = lista)
     #return redirect(url_for('acerca'))
 
