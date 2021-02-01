@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+    Acerca
+{% endblock %}
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in variable %}
+                <tr>
+                    <td>{{r.nombre}}</td>
+                    <td>{{r.apellido}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
